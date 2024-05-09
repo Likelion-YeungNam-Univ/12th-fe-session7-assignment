@@ -1,11 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import './TodoListItem.css'
 
 const TodoListItem = ({id, body, handleDelete}) => {
 
   const handleComplete = (id) => {
-    console.log("clicked!")
     const todoItem = document.getElementById(id);
     todoItem.classList.add("completed")
   }
@@ -31,6 +29,11 @@ const Box = styled.div`
   display: flex;
   justify-content: space-between;
   align-items : center;
+
+  &.completed{
+    text-decoration: line-through;
+    color : gray;
+  }
 `;
 
 const Button = styled.button`
