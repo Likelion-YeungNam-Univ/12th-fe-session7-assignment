@@ -50,7 +50,7 @@ function App() {
   return (
     <Container>
       <form onSubmit={appendTodo}>
-        <TodoInput onChange={handleInput} value={inputString}></TodoInput>
+        <TodoInput onChange={handleInput} value={inputString} placeholder="할 일을 입력하세요."></TodoInput>
       </form>
       <TodoList todoList={todoList} handleDelete={handleDelete}></TodoList>
     </Container>
@@ -66,10 +66,13 @@ const Container = styled.div`
 const TodoInput = styled.input`
   width: 100%;
   margin-top: 100px;
+  padding : 3px 5px;
   height: 32px;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   box-sizing: border-box;
+  outline : none;  
+  border : none;
 `
 
 

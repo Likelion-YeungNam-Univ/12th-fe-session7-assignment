@@ -1,14 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
+import './TodoListItem.css'
 
 const TodoListItem = ({id, body, handleDelete}) => {
 
-
+  const handleComplete = (id) => {
+    console.log("clicked!")
+    const todoItem = document.getElementById(id);
+    todoItem.classList.add("completed")
+  }
 
   return (
-    <Box>
+    <Box id={id}>
       <p>{body}</p>
-      <button onClick={() => {handleDelete(id)}}>삭제</button>
+      <div>
+        <Button onClick={() => handleComplete(id)}>완료</Button>
+        <Button onClick={() => handleDelete(id)}>삭제</Button>
+      </div>
     </Box>
   )
 }
@@ -22,6 +30,12 @@ const Box = styled.div`
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
-`
+  align-items : center;
+`;
+
+const Button = styled.button`
+  background : none;
+  border : none;
+`;
 
 export default TodoListItem
