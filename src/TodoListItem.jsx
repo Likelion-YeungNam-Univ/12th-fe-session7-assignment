@@ -1,17 +1,29 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
-const TodoListItem = ({id, body, handleDelete}) => {
-
-
-
+const TodoListItem = ({ id, body, handleComplete, handleDelete }) => {
   return (
     <Box>
       <p>{body}</p>
-      <button onClick={() => {handleDelete(id)}}>삭제</button>
+      <div>
+        <button
+          onClick={() => {
+            handleComplete(id);
+          }}
+        >
+          완료
+        </button>
+        <button
+          onClick={() => {
+            handleDelete(id);
+          }}
+        >
+          삭제
+        </button>
+      </div>
     </Box>
-  )
-}
+  );
+};
 
 const Box = styled.div`
   background-color: white;
@@ -22,6 +34,6 @@ const Box = styled.div`
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
-`
+`;
 
-export default TodoListItem
+export default TodoListItem;
