@@ -8,7 +8,11 @@ const TodoListItem = ({id, body, handleDelete}) => {
   return (
     <Box>
       <p>{body}</p>
-      <button onClick={() => {handleDelete(id)}}>삭제</button>
+
+      <div>
+        <button>완료</button>
+        <button onClick={() => {handleDelete(id)}}>삭제</button>
+      </div>
     </Box>
   )
 }
