@@ -46,13 +46,26 @@ function App() {
     setTodoList(new_Todo)
   }
 
+  const handleComplete = (id) => {
+
+    const new_Todo = todoList.map((el)=>{
+      if (el.id === id) {
+        return {...el, style: {color: 'gray', textDecoration: 'line-through'}};
+      }
+      else{
+        return el
+      }
+    })
+    setTodoList(new_Todo)
+  }
+
 
   return (
     <Container>
       <form onSubmit={appendTodo}>
         <TodoInput onChange={handleInput} value={inputString}></TodoInput>
       </form>
-      <TodoList todoList={todoList} handleDelete={handleDelete}></TodoList>
+      <TodoList todoList={todoList} handleComplete={handleComplete} handleDelete={handleDelete}></TodoList>
     </Container>
   );
 }
