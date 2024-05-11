@@ -21,8 +21,7 @@ function App() {
 
   const [todoList, setTodoList] = useState(fake)
   const [inputString, setInputString] = useState("")
-
-
+  
 
   const appendTodo = (event) => {
     event.preventDefault()
@@ -45,7 +44,6 @@ function App() {
     })
     setTodoList(new_Todo)
   }
-
 
   return (
     <Container>
