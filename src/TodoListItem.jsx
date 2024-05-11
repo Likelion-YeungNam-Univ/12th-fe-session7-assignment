@@ -1,14 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const TodoListItem = ({id, body, handleDelete}) => {
+const TodoListItem = ({id, body, style, handleComplete, handleDelete}) => {
 
 
 
   return (
     <Box>
-      <p>{body}</p>
-      <button onClick={() => {handleDelete(id)}}>삭제</button>
+      <p style={style}>{body}</p>
+      <p>
+        <button onClick={() => {handleComplete(id)}}>완료</button>
+        <button onClick={() => {handleDelete(id)}}>삭제</button>
+      </p>
     </Box>
   )
 }
