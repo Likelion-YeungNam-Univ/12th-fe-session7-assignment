@@ -57,11 +57,7 @@ function App() {
         return el
       }
     })
-    console.log({new_Todo});
     setTodoList(new_Todo)
-
-    console.log({new_Todo});
-    console.log({todoList});
   }
 
 
