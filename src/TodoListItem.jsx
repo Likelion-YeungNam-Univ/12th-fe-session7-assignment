@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const TodoListItem = ({ id, body, complete, handleDelete, handleComplete }) => {
   return (
     <Box>
-      <p>{body}</p>
+      {complete === false ? <p>{body}</p> : <IsCompleted>{body}</IsCompleted>}
       <ButtonBox>
         <button
           onClick={() => {
@@ -38,6 +38,11 @@ const Box = styled.div`
 const ButtonBox = styled.div`
   display: flex;
   gap: 10px;
+`;
+
+const IsCompleted = styled.p`
+  color: gray;
+  text-decoration: line-through;
 `;
 
 export default TodoListItem;

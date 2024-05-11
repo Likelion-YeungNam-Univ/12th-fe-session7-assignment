@@ -47,11 +47,19 @@ function App() {
   };
 
   const handleComplete = (id) => {
-    todoList.map((el) => {
+    const new_Todo = todoList.map((el) => {
       if (el.id === id) {
-        el.complete = true;
+        if (el.complete === false) {
+          el.complete = true;
+        } else {
+          el.complete = false;
+        }
+        return el;
+      } else {
+        return el;
       }
     });
+    setTodoList(new_Todo);
   };
 
   return (
