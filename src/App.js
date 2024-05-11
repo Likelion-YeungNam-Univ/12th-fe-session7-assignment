@@ -48,7 +48,6 @@ function App() {
 
   const handleComplete = (id) => {
 
-    console.log({todoList});
     const new_Todo = todoList.map((el)=>{
       if (el.id === id) {
         return {...el, style: {color: 'gray', textDecoration: 'line-through'}};
