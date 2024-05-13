@@ -1,17 +1,37 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
+import "./TodoListItem.css";
+import { useState } from "react";
 
-const TodoListItem = ({id, body, handleDelete}) => {
-
-
-
+const TodoListItem = ({ id, body, handleDelete }) => {
+  const [finish, setFinish] = useState(false);
+  const className = finish ? "finish" : null;
   return (
     <Box>
-      <p>{body}</p>
-      <button onClick={() => {handleDelete(id)}}>삭제</button>
+      <p className={className}>{body}</p>
+      <div>
+        <button
+          onClick={() => {
+            if (finish) {
+              setFinish(false);
+            } else {
+              setFinish(true);
+            }
+          }}
+        >
+          완료
+        </button>
+        <button
+          onClick={() => {
+            handleDelete(id);
+          }}
+        >
+          삭제
+        </button>
+      </div>
     </Box>
-  )
-}
+  );
+};
 
 const Box = styled.div`
   background-color: white;
@@ -22,6 +42,6 @@ const Box = styled.div`
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
-`
+`;
 
-export default TodoListItem
+export default TodoListItem;
