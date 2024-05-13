@@ -26,7 +26,7 @@ function App() {
 
   const appendTodo = (event) => {
     event.preventDefault();
-    const new_Todo = [...todoList, { id: Date.now(), body: inputString }];
+    const new_Todo = [...todoList, { id: Date.now(), body: inputString,completed:false }];
     setTodoList(new_Todo);
     setInputString("");
   };
