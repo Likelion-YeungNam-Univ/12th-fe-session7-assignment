@@ -2,12 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import TodoListItem from './TodoListItem'
 
-const TodoList = ({todoList, handleDelete}) => {
+
+const TodoList = ({todoList, handleDelete, handleComplete}) => {
   return (
     <Box>
       <h1>할 일 목록</h1>
       {todoList.map((el) => {
-        return <TodoListItem handleDelete={handleDelete} key={el.id} id={el.id} body={el.body}></TodoListItem>
+        return <TodoListItem handleDelete={handleDelete} handleComplete={handleComplete} key={el.id} id={el.id} body={el.body} style={el.style}></TodoListItem>
       })}
     </Box>
   )
@@ -22,4 +23,4 @@ const Box = styled.div`
 
 `
 
-export default TodoList
+export default TodoList;
