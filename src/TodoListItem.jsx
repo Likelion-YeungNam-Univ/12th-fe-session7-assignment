@@ -1,17 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const TodoListItem = ({id, body, handleDelete}) => {
+const TodoListItem = ({id, body, style, handleDelete, handleComplete}) => {
 
 
 
   return (
     <Box>
-      <p>{body}</p>
+      <p style={style}>{body}</p>
+      
       <button onClick={() => {handleDelete(id)}}>삭제</button>
+      <button className='complete-btn' onClick={() => {handleComplete(id)}}>완료</button>
     </Box>
-  )
-}
+  );
+};
 
 const Box = styled.div`
   background-color: white;
@@ -22,6 +24,7 @@ const Box = styled.div`
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
-`
+`;
 
-export default TodoListItem
+
+export default TodoListItem;

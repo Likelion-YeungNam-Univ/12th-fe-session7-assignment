@@ -26,13 +26,25 @@ function App() {
 
   const appendTodo = (event) => {
     event.preventDefault()
-    const new_Todo = [...todoList, {id: Date.now(), body: inputString}];
+    const new_Todo = [...todoList, {id: Date.now(), body: inputString, completed:false}];
     setTodoList(new_Todo);
     setInputString('')
   }
 
   const handleInput = (event) => {
     setInputString(event.target.value)
+  }
+
+  const handleComplete = (id) => {
+    const new_Todo = todoList.map((el)=>{
+      if (el.id===id) {
+        return {...el, completed: true, style: {color: 'gray', textDecoration: 'line-through'}};
+      }
+      {
+        return el;
+      }
+    })
+    setTodoList(new_Todo)
   }
 
   const handleDelete = (id) => {
@@ -52,7 +64,7 @@ function App() {
       <form onSubmit={appendTodo}>
         <TodoInput onChange={handleInput} value={inputString}></TodoInput>
       </form>
-      <TodoList todoList={todoList} handleDelete={handleDelete}></TodoList>
+      <TodoList todoList={todoList} handleDelete={handleDelete} handleComplete={handleComplete}></TodoList>
     </Container>
   );
 }
@@ -61,7 +73,7 @@ const Container = styled.div`
   width: 70%;
   height: 100vh;
   margin: auto;
-`
+`;
 
 const TodoInput = styled.input`
   width: 100%;
@@ -70,7 +82,7 @@ const TodoInput = styled.input`
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   box-sizing: border-box;
-`
+`;
 
 
 export default App;
