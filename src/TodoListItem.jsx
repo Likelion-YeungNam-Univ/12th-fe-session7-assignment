@@ -1,12 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const TodoListItem = ({id, body, handleDelete}) => {
+const TodoListItem = ({id, body, handleComplete, handleDelete, completed}) => {
 
-  const handleComplete = (id) => {
-    const todoItem = document.getElementById(id);
-    todoItem.classList.add("completed")
-  }
+  const Box = styled.div`
+  background-color: white;
+  padding: 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items : center;
+
+  color : ${completed ? 'gray' : 'black'};
+  text-decoration : ${completed ? 'line-through' : 'none'};
+`;
 
   return (
     <Box id={id}>
@@ -19,22 +29,7 @@ const TodoListItem = ({id, body, handleDelete}) => {
   )
 }
 
-const Box = styled.div`
-  background-color: white;
-  padding: 5px 15px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  margin-bottom: 15px;
-  box-sizing: border-box;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items : center;
 
-  &.completed{
-    text-decoration: line-through;
-    color : gray;
-  }
-`;
 
 const Button = styled.button`
   background : none;
